@@ -129,7 +129,7 @@ function getPolynom(...pows) {
  */
 function memoize(func) {
   const memory = {};
-  return function (...args) {
+  return function checkMemory(...args) {
     const key = JSON.stringify(args);
     if (!(key in memory)) {
       memory[key] = func(...args);
