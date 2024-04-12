@@ -18,7 +18,13 @@
  *
  */
 function getCurrentFunctionName() {
-  throw new Error('Not implemented');
+  try {
+    throw new Error();
+  } catch (e) {
+    const errStack = e.stack.split('at');
+    const funcName = errStack[1].trim().split(' ');
+    return funcName[0].split('.')[1];
+  }
 }
 
 /**
